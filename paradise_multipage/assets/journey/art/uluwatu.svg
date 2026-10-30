@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260"><defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff1b8"/><stop offset=".45" stop-color="#e3b24f"/><stop offset="1" stop-color="#9c6b1c"/></linearGradient><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#4fd1d9"/><stop offset="1" stop-color="#0f6f8f"/></linearGradient></defs>
+<path d="M0 220 Q30 212 60 220 T120 220 T180 220 T240 220 V260 H0Z" fill="url(#sea)"/>
+<path d="M60 222 L76 120 L104 96 L230 90 L240 100 V222Z" fill="#a98563"/>
+<path d="M60 222 L76 120 L104 96 L120 100 L96 140 L92 222Z" fill="#7d5d42"/>
+<path d="M76 120 L104 96 L230 90 L240 100 L180 104 L110 106Z" fill="#3f9a46"/>
+<g fill="#6e5a49">
+<path d="M150 98 V52 L158 44 V36 L164 30 L164 98Z"/><path d="M196 98 V52 L188 44 V36 L182 30 L182 98Z"/></g>
+<g fill="url(#gold)"><circle cx="164" cy="28" r="2.5"/><circle cx="182" cy="28" r="2.5"/></g>
+<path d="M0 232 Q24 226 48 232 T96 232" stroke="#e6fbff" stroke-width="2.4" fill="none"/>
+<g fill="#ff8a3c"><path d="M30 214 c -2 -6 4 -8 2 -14 c 6 4 6 10 2 14z"/><path d="M40 214 c -2 -5 3 -7 1 -12 c 5 3 5 9 1 12z"/></g></svg>

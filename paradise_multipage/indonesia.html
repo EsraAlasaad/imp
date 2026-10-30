@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Indonesia Globe | Tayer Alshareq</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="journey.css">
+</head>
+<body class="jx">
+<header class="jx-header">
+  <a class="brand" href="index.html">✦ طائر الشرق | TAYER ALSHAREQ<small>TRAVEL · DISCOVER · EXPERIENCE</small></a>
+  <nav class="nav">
+    <a href="index.html">Overview</a>
+    <a class="active" href="indonesia.html">Indonesia</a>
+    <a href="journey.html#bali">Bali &amp; Islands</a>
+    <a href="journey.html#food">Food &amp; Adventures</a>
+    <a href="index.html#maldives">Maldives</a>
+  </nav>
+</header>
+
+<div id="globe" aria-hidden="true"></div>
+
+<div class="globe-hint">DRAG TO SPIN · TAP A GOLD PIN</div>
+<div class="sound-control" id="soundControl" role="button" tabindex="0" aria-label="Play ocean waves and Balinese music">♫ Play ambience</div>
+<audio id="oceanAudio" loop preload="auto"><source src="assets/ocean-waves.mp3" type="audio/mpeg"></audio>
+<audio id="baliAudio" loop preload="auto"><source src="assets/bali-gamelan.mp3" type="audio/mpeg"></audio>
+
+<div class="warp" id="warp"></div>
+
+<script src="assets/vendor/globe.gl.min.js"></script>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/globe/textures.js"></script>
+<script>
+(() => {
+  const places = [
+    { id: 'jakarta', name: 'Jakarta', ar: 'جاكرتا', note: 'Landmarks & tours', lat: -6.1754, lng: 106.8272, href: 'journey.html#jakarta' },
+    { id: 'bali', name: 'Bali', ar: 'بالي', note: 'Adventures & temples', lat: -8.4095, lng: 115.1889, href: 'journey.html#bali' }
+  ];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mobile = () => innerWidth < 720;
+  const home = () => ({ lat: mobile() ? -12 : -6.5, lng: mobile() ? 111 : 104, altitude: mobile() ? 2.1 : 1.45 });
+  let leaving = false;
+
+  const go = (id) => {
+    if (leaving) return;
+    leaving = true;
+    const p = places.find(x => x.id === id);
+    if (!globe) { location.href = p.href; return; }
+    globe.controls().autoRotate = false;
+    globe.pointOfView({ lat: p.lat, lng: p.lng, altitude: 0.28 }, reduce ? 300 : 1600);
+    gsap.to('#warp', { clipPath: 'circle(150% at 50% 50%)', duration: reduce ? .3 : 1, delay: reduce ? .2 : 1.1, ease: 'power2.in',
+      onComplete: () => { location.href = p.href; } });
+  };
+  document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => go(b.dataset.go)));
+
+  let globe = null;
+  try {
+    globe = Globe({ animateIn: !reduce })(document.getElementById('globe'))
+      .width(innerWidth).height(innerHeight)
+      .globeImageUrl(window.GLOBE_TEX.earth)
+      .bumpImageUrl(window.GLOBE_TEX.bump)
+      .backgroundImageUrl(window.GLOBE_TEX.sky)
+      .atmosphereColor('#f3d58a').atmosphereAltitude(0.2)
+      .htmlElementsData(places)
+      .htmlAltitude(0.01)
+      .htmlElement(d => {
+        // globe.gl positions this zero-size anchor; the button is offset inside it
+        const anchor = document.createElement('div');
+        anchor.className = 'pin-anchor';
+        const b = document.createElement('button');
+        b.className = d.id === 'jakarta' ? 'pin left' : 'pin';
+        b.setAttribute('aria-label', `Open ${d.name} journal`);
+        b.innerHTML = `<span class="pin-dot"></span><span class="pin-label"><b>${d.name}</b><i>${d.ar}</i><small>${d.note}</small></span>`;
+        b.addEventListener('click', e => { e.stopPropagation(); go(d.id); });
+        anchor.appendChild(b);
+        return anchor;
+      })
+      .htmlElementVisibilityModifier((el, visible) => el.classList.toggle('hidden', !visible))
+      .ringsData(places)
+      .ringColor(() => t => `rgba(246,220,150,${1 - t})`)
+      .ringMaxRadius(3.2).ringPropagationSpeed(1.4).ringRepeatPeriod(1500)
+      .arcsData([{ startLat: places[0].lat, startLng: places[0].lng, endLat: places[1].lat, endLng: places[1].lng }])
+      .arcColor(() => ['rgba(246,220,150,0.25)', '#f6dc96'])
+      .arcAltitude(0.08).arcStroke(0.5)
+      .arcDashLength(0.45).arcDashGap(0.25).arcDashAnimateTime(2400);
+
+    const controls = globe.controls();
+    controls.autoRotate = !reduce;
+    controls.autoRotateSpeed = 0.35;
+    controls.minDistance = 130;
+    controls.maxDistance = 600;
+
+    globe.pointOfView({ lat: 12, lng: 40, altitude: 3.2 });
+    globe.onGlobeReady(() => {
+      setTimeout(() => {
+        globe.pointOfView(home(), reduce ? 0 : 2800);
+        setTimeout(() => { if (!leaving) controls.autoRotate = false; }, 2900);
+      }, reduce ? 0 : 500);
+    });
+
+    addEventListener('resize', () => globe.width(innerWidth).height(innerHeight));
+  } catch (err) {
+    console.warn('3D globe unavailable', err);
+    globe = null;
+  }
+})();
+</script>
+<script>
+(()=>{const b=document.getElementById('soundControl'),o=document.getElementById('oceanAudio'),m=document.getElementById('baliAudio');if(!b)return;o.volume=.32;m.volume=.18;let on=false;async function toggle(){if(!on){try{await Promise.all([o.play(),m.play()]);on=true;b.innerHTML='❚❚ Pause ambience';b.classList.add('playing')}catch(e){}}else{o.pause();m.pause();on=false;b.innerHTML='♫ Play ambience';b.classList.remove('playing')}}b.addEventListener('click',toggle);b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();toggle()}})})();
+</script>
+</body>
+</html>

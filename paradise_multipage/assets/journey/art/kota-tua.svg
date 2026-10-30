@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260"><defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff1b8"/><stop offset=".45" stop-color="#e3b24f"/><stop offset="1" stop-color="#9c6b1c"/></linearGradient><linearGradient id="stone" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#ece8e1"/><stop offset="1" stop-color="#b9b2a6"/></linearGradient></defs>
+<rect x="6" y="248" width="228" height="8" fill="#c6a77a"/>
+<rect x="18" y="150" width="204" height="98" fill="url(#stone)"/>
+<path d="M10 152 L230 152 L210 124 L30 124Z" fill="#b5532f"/>
+<path d="M10 152 L230 152 L226 146 L14 146Z" fill="#8c3c22"/>
+<rect x="104" y="96" width="32" height="30" fill="#f2eee6"/>
+<path d="M100 98 L140 98 L130 82 L110 82Z" fill="#b5532f"/>
+<rect x="117" y="64" width="6" height="20" fill="#7a5a36"/><circle cx="120" cy="62" r="4" fill="url(#gold)"/>
+<circle cx="120" cy="111" r="7" fill="#fff" stroke="#6b4a2e" stroke-width="2"/>
+<g fill="#2f5d4a"><rect x="28" y="164" width="12" height="22" rx="1"/><rect x="28" y="204" width="12" height="22" rx="1"/><rect x="52" y="164" width="12" height="22" rx="1"/><rect x="52" y="204" width="12" height="22" rx="1"/><rect x="76" y="164" width="12" height="22" rx="1"/><rect x="76" y="204" width="12" height="22" rx="1"/><rect x="148" y="164" width="12" height="22" rx="1"/><rect x="148" y="204" width="12" height="22" rx="1"/><rect x="172" y="164" width="12" height="22" rx="1"/><rect x="172" y="204" width="12" height="22" rx="1"/><rect x="196" y="164" width="12" height="22" rx="1"/><rect x="196" y="204" width="12" height="22" rx="1"/></g>
+<rect x="106" y="196" width="28" height="52" rx="14" fill="#5b3a22"/>
+<g stroke-width="3" fill="none"><g stroke="#e8579a"><circle cx="46" cy="240" r="9"/><circle cx="74" cy="240" r="9"/><path d="M46 240 L58 226 L74 240 M58 226 L66 226"/></g>
+<g stroke="#f2c230"><circle cx="166" cy="240" r="9"/><circle cx="194" cy="240" r="9"/><path d="M166 240 L178 226 L194 240 M178 226 L186 226"/></g></g></svg>

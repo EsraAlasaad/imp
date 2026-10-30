@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Indonesia Journal | Tayer Alshareq</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="journey.css">
+</head>
+<body class="jx book">
+<header class="jx-header">
+  <a class="brand" href="index.html">✦ طائر الشرق | TAYER ALSHAREQ<small>TRAVEL · DISCOVER · EXPERIENCE</small></a>
+  <nav class="nav">
+    <a href="index.html">Overview</a>
+    <a href="indonesia.html">Indonesia</a>
+    <a href="#bali">Bali &amp; Islands</a>
+    <a href="#food">Food &amp; Adventures</a>
+    <a href="index.html#maldives">Maldives</a>
+  </nav>
+</header>
+
+<div class="chapters" role="tablist" aria-label="Chapters" id="chapters"></div>
+
+<main class="desk" id="desk">
+  <div class="book" id="book">
+    <div class="book-body" id="body">
+      <div class="leather"></div>
+      <div class="base" id="base"></div>
+    </div>
+    <div class="ovl" id="ovl"></div>
+  </div>
+</main>
+
+<canvas id="dust"></canvas>
+
+<section class="dock" aria-label="Journal controls">
+  <div class="sr-only" id="cap" aria-live="polite"></div>
+  <div class="ctrl">
+    <button id="prev" aria-label="Previous page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button id="play" aria-label="Pause"></button>
+    <button id="next" aria-label="Next page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="progress"><i id="bar"></i></div>
+</section>
+
+<div class="finale" id="finale" hidden>
+  <div class="finale-card">
+    <div class="eyebrow-x">The end of the journal · نهاية الرحلة</div>
+    <h2>Your journey <span class="foil">awaits</span></h2>
+    <p class="ar" lang="ar">جاكرتا وبالي بانتظارك مع طائر الشرق</p>
+    <p>Landmarks, adventures and flavours — let Tayer Alshareq plan every chapter for you.</p>
+    <div class="row">
+      <a class="btn-x primary" href="index.html">Plan my trip</a>
+      <button class="btn-x" id="replay">Replay journal</button>
+      <a class="btn-x" href="indonesia.html">Back to the globe</a>
+    </div>
+  </div>
+</div>
+
+<div class="sound-control" id="soundControl" role="button" tabindex="0" aria-label="Play ocean waves and Balinese music">♫<span class="lbl">&nbsp;Play ambience</span></div>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="journey-data.js"></script>
+<script src="journey.js"></script>
+<audio id="oceanAudio" loop preload="auto"><source src="assets/ocean-waves.mp3" type="audio/mpeg"></audio>
+<audio id="baliAudio" loop preload="auto"><source src="assets/bali-gamelan.mp3" type="audio/mpeg"></audio>
+<script>
+(()=>{const b=document.getElementById('soundControl'),o=document.getElementById('oceanAudio'),m=document.getElementById('baliAudio');if(!b)return;o.volume=.32;m.volume=.18;let on=false;async function toggle(){if(!on){try{await Promise.all([o.play(),m.play()]);on=true;b.innerHTML='❚❚<span class="lbl">&nbsp;Pause ambience</span>';b.classList.add('playing')}catch(e){}}else{o.pause();m.pause();on=false;b.innerHTML='♫<span class="lbl">&nbsp;Play ambience</span>';b.classList.remove('playing')}}b.addEventListener('click',toggle);b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();toggle()}})})();
+</script>
+</body>
+</html>

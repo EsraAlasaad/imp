@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260"><defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff1b8"/><stop offset=".45" stop-color="#e3b24f"/><stop offset="1" stop-color="#9c6b1c"/></linearGradient><linearGradient id="stone" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#ece8e1"/><stop offset="1" stop-color="#b9b2a6"/></linearGradient><radialGradient id="glow"><stop offset="0" stop-color="#ffe9a3" stop-opacity=".9"/><stop offset="1" stop-color="#ffe9a3" stop-opacity="0"/></radialGradient></defs>
+<circle cx="120" cy="34" r="34" fill="url(#glow)"/>
+<path d="M30 252 L210 252 L196 238 L44 238Z" fill="#cfc6b6"/>
+<path d="M44 238 L196 238 L182 222 L58 222Z" fill="url(#stone)"/>
+<path d="M52 222 L188 222 L174 206 L66 206Z" fill="#ddd6c9"/>
+<path d="M66 206 L174 206 L164 196 L76 196Z" fill="url(#stone)"/>
+<path d="M108 196 L132 196 L126 66 L114 66Z" fill="url(#stone)"/>
+<path d="M126 196 L132 196 L126 66Z" fill="#b9b2a6" opacity=".6"/>
+<rect x="104" y="58" width="32" height="8" rx="1" fill="#d8d1c4"/>
+<rect x="110" y="52" width="20" height="6" fill="#c6bfb2"/>
+<path d="M112 52 L128 52 L124 44 L116 44Z" fill="#8f7a52"/>
+<path d="M120 4 C 132 18 132 30 126 38 C 126 30 122 26 121 22 C 122 30 118 36 114 44 L126 44 C 132 36 134 24 120 4Z" fill="url(#gold)"/>
+<path d="M120 10 C 110 22 108 34 116 44 L124 44 C 116 34 118 24 120 10Z" fill="#f6c453"/></svg>
